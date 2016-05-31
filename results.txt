@@ -1,0 +1,17 @@
+|                 | add             | get             | remove(last)    | remove(first)   | remove(random)  | contains        | populate        | Iterator.get    | Iterator.add    | Iterator.remove |
+| LinkedList      | 29463           | 7001            | 2092            | 1661            | 5877            | 204803          | 366432          | 84944           | 110268          | 99534           |
+| ArrayList       | 2757            | 1253            | 922             | 3525            | 1932            | 170447          | 273600          | 169700          | 284357          | 167506          |
+| HashSet         | 3278            |                 | 2415            | 1559            | 985             | 2908            | 363469          |                 |                 |                 |
+| TreeSet         | 1236            |                 | 2606            | 5526            | 4457            | 4722            | 593791          |                 |                 |                 |
+
+|                 | add             | get             | remove(last)    | remove(first)   | remove(random)  | contains        | populate        | Iterator.get    | Iterator.add    | Iterator.remove |
+| LinkedList      | 60942           | 58918           | 1319            | 802             | 52057           | 1388294         | 2667201         | 350237          | 199545          | 271127          |
+| ArrayList       | 14443           | 1154            | 897             | 21821           | 11655           | 554454          | 2282450         | 7311            | 60608           | 64715           |
+| HashSet         | 2190            |                 | 4907            | 2008            | 935             | 3185            | 1859167         |                 |                 |                 |
+| TreeSet         | 2206            |                 | 3345            | 4154            | 3060            | 6918            | 12258258        |                 |                 |                 |
+
+|                 | add             | get             | remove(last)    | remove(first)   | remove(random)  | contains        | populate        | Iterator.get    | Iterator.add    | Iterator.remove |
+| LinkedList      | 825675          | 872647          | 1348            | 1311            | 962787          | 22664979        | 24606235        | 4383192         | 2743422         | 3297200         |
+| ArrayList       | 171136          | 1941            | 1618            | 395983          | 155042          | 8870105         | 24691524        | 71423           | 992632          | 1207623         |
+| HashSet         | 1954            |                 | 2138            | 2145            | 1034            | 6398            | 21791507        |                 |                 |                 |
+| TreeSet         | 4888            |                 | 2238            | 8892            | 6908            | 20017           | 177249847       |                 |                 |                 |
