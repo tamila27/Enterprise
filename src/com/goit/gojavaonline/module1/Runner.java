@@ -12,6 +12,6 @@ public class Runner {
 
         String s = result.toString();
         System.out.println(s);
-        FileManager.writeToFile("results.txt", s);
+        FileManager.writeToFile("results_module1.txt", s);
     }
 }
