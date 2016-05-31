@@ -35,9 +35,6 @@ public abstract class CollectionPerformanceChecker {
     public static long checkElementsSequentDeletion1(List<Object> list, int n){
         populate(list, n);
         long time = System.nanoTime();
-        /*while(!list.isEmpty()){
-            list.remove(list.size() - 1);
-        }*/
         list.remove(list.size() - 1);
         return System.nanoTime() - time;
     }
@@ -45,9 +42,6 @@ public abstract class CollectionPerformanceChecker {
     public static long checkElementsSequentDeletion1(Set<Object> set, int n){
         populate(set, n);
         long time = System.nanoTime();
-        /*while(!set.isEmpty()){
-            set.remove(new DummyStubObject(set.size() - 1));
-        }*/
         set.remove(new DummyStubObject(set.size() - 1));
         return System.nanoTime() - time;
     }
@@ -55,9 +49,6 @@ public abstract class CollectionPerformanceChecker {
     public static long checkElementsSequentDeletion2(List<Object> list, int n){
         populate(list, n);
         long time = System.nanoTime();
-        /*while(!list.isEmpty()){
-            list.remove(0);
-        }*/
         list.remove(0);
         return System.nanoTime() - time;
     }
@@ -65,10 +56,6 @@ public abstract class CollectionPerformanceChecker {
     public static long checkElementsSequentDeletion2(Set<Object> set, int n){
         populate(set, n);
         long time = System.nanoTime();
-        /*int i = 0;
-        while(!set.isEmpty()){
-            set.remove(new DummyStubObject(i++));
-        }*/
         set.remove(new DummyStubObject(0));
         return System.nanoTime() - time;
     }
@@ -76,11 +63,6 @@ public abstract class CollectionPerformanceChecker {
     public static long checkAddRandomElements(List<Object> list, int n){
         populate(list, n);
         long time = System.nanoTime();
-        /*list.add(new DummyStubObject(0));
-        while(list.size() < n){
-            int index = (int)Math.round(Math.random() * (list.size() - 1));
-            list.add(index, new DummyStubObject(index));
-        }*/
         int index = (int)Math.round(Math.random() * (list.size() - 1));
         list.add(index, new DummyStubObject(index));
         return System.nanoTime() - time;
@@ -89,12 +71,6 @@ public abstract class CollectionPerformanceChecker {
     public static long checkAddRandomElements(Set<Object> set, int n){
         populate(set, n);
         long time = System.nanoTime();
-        /*set.add(new DummyStubObject(0));
-        int i = n;
-        while(set.size() < n){
-            int index = (int)Math.round(Math.random() * i--);
-            set.add(new DummyStubObject(index));
-        }*/
         int index = (int)Math.round(Math.random() * n);
         set.add(new DummyStubObject(index));
         return System.nanoTime() - time;
@@ -104,10 +80,6 @@ public abstract class CollectionPerformanceChecker {
         populate(list, n);
         int index = (int)Math.round(Math.random() * (list.size() - 1));
         long time = System.nanoTime();
-        /*while(list.size() > 0){
-            int index = (int)Math.round(Math.random() * (list.size() - 1));
-            list.remove(index);
-        }*/
         list.remove(index);
         return System.nanoTime() - time;
     }
@@ -127,10 +99,8 @@ public abstract class CollectionPerformanceChecker {
     public static long checkGetRandomElements(List<Object> list, int n){
         populate(list, n);
         long time = System.nanoTime();
-        //while(n-- > 0){
-            int index = (int)Math.round(Math.random() * (list.size() - 1));
-            list.get(index);
-        //}
+        int index = (int)Math.round(Math.random() * (list.size() - 1));
+        list.get(index);
         return System.nanoTime() - time;
     }
 
