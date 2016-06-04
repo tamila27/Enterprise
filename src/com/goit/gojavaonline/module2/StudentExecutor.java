@@ -17,12 +17,18 @@ public class StudentExecutor implements Executor<ExamTask, TaskValidator> {
     }
 
     @Override
-    public void addTask(ExamTask task) {
+    public void addTask(ExamTask task) throws Exception {
+        if(executed){
+            throw new Exception("StudentExecutor has been executed");
+        }
         validTasks.add(task);
     }
 
     @Override
-    public void addTask(ExamTask task, TaskValidator validator) {
+    public void addTask(ExamTask task, TaskValidator validator) throws Exception {
+        if(executed){
+            throw new Exception("StudentExecutor has been executed");
+        }
         if(validator.isValid(task)){
            validTasks.add(task);
         } else {
