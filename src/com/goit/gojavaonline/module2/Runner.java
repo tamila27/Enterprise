@@ -1,37 +1,40 @@
 package com.goit.gojavaonline.module2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by tamila on 6/2/16.
  */
 public class Runner {
-    public static void main(String[] args){
-        Number[] intNumbers = new Integer[]{10, 20, 30};
-        intNumbers[2] = 10.48;
-        for (Number intNumber : intNumbers) {
-            System.out.println(intNumber);
-        }
+    public static void main(String[] args) throws Exception {
+        List<ExamTask> tasks = Arrays.asList(new ExamTask("examTask1", new Student("firstStudent")),
+                new ExamTask("examTask2", new Student("secondStudent")));
 
-        
+        test(tasks);
+
     }
 
-    /*public void test(List<Task<Integer>> intTasks) {
-        Executor<Number> numberExecutor = new ExecutorImpl<>();
+    public static void test(List<ExamTask> tasks) throws Exception {
+        Executor<ExamTask, TaskValidator> studentExecutor = new StudentExecutor();
 
-        for (Task<Integer> intTask : intTasks) {
-            numberExecutor.addTask(intTask);
+        for (ExamTask task : tasks) {
+            studentExecutor.addTask(task);
         }
-        numberExecutor.addTask(new LongTask(10L), new NumberValidator());
+        Student student = new Student("student3");
+        studentExecutor.addTask(new ExamTask("examTask3", student), new TaskValidator());
 
-        numberExecutor.execute();
+        studentExecutor.execute();
 
         System.out.println("Valid results:");
-        for (Number number : numberExecutor.getValidResults()) {
-            System.out.println(number);
+        for (ExamTask task : studentExecutor.getValidResults()) {
+            System.out.println(task);
         }
         System.out.println("Invalid results:");
-        for (Number number : numberExecutor.getInvalidResults()) {
-            System.out.println(number);
+        for (ExamTask task : studentExecutor.getInvalidResults()) {
+            System.out.println(task);
         }
-    }*/
+    }
 
 }
