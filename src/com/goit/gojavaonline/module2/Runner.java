@@ -10,6 +10,8 @@ public class Runner {
         for (Number intNumber : intNumbers) {
             System.out.println(intNumber);
         }
+
+        
     }
 
     /*public void test(List<Task<Integer>> intTasks) {
