@@ -7,4 +7,8 @@ public class PrintUtility {
     public static void print(String message){
         System.out.println(Thread.currentThread().getName() + " : " + message);
     }
+
+    public static void print(int message){
+        print(String.valueOf(message));
+    }
 }

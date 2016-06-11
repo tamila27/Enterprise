@@ -13,7 +13,7 @@ public class Runner {
         semaphore.setMaxPermitsCount(PERMITS_COUNT);
 
         for (int i = 0; i < THREADS_COUNT; i++) {
-            new Thread(new Worker(semaphore, true, getPermitsRequired())).start();
+            new Thread(new Worker(semaphore, getPermitsRequired())).start();
         }
     }
 
