@@ -1,6 +1,6 @@
 package com.goit.gojavaonline.module3part1.hometask;
 
-import static com.goit.gojavaonline.module3part1.theory.PrintUtility.print;
+import static com.goit.gojavaonline.module3part1.hometask.PrintUtility.print;
 
 /**
  * Created by tamila on 6/11/16.

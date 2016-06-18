@@ -1,6 +1,6 @@
 package com.goit.gojavaonline.module3part1.hometask;
 
-import static com.goit.gojavaonline.module3part1.theory.PrintUtility.print;
+import static com.goit.gojavaonline.module3part1.hometask.PrintUtility.print;
 
 public class SimpleSemaphore implements Semaphore {
     private final int DEFAULT_MAX_PERMITS_COUNT = 2;

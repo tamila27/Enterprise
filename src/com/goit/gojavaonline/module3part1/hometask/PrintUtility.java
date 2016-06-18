@@ -1,4 +1,4 @@
-package com.goit.gojavaonline.module3part1.theory;
+package com.goit.gojavaonline.module3part1.hometask;
 
 /**
  * Created by tamila on 6/11/16.
