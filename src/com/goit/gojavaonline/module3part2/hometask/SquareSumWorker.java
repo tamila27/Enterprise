@@ -4,28 +4,22 @@ package com.goit.gojavaonline.module3part2.hometask;
  * Created by tamila on 6/18/16.
  */
 public class SquareSumWorker implements Runnable {
-    private int[] array;
-    private int startIndex;
-    private int endIndex;
+    private WorkerContext context;
     private long result;
-    private PhaserOwner phaserOwner;
 
-    public SquareSumWorker(int[] array, int startIndex, int endIndex, PhaserOwner phaserOwner) {
-        this.array = array;
-        this.startIndex = startIndex;
-        this.endIndex = endIndex;
-        this.phaserOwner = phaserOwner;
+    public SquareSumWorker(WorkerContext workerContext) {
+        this.context = workerContext;
         this.result = 0;
     }
 
     @Override
     public void run() {
-        if(array != null) {
-            for (int i = startIndex; i <= endIndex; i++) {
-                result += Math.pow(array[i], 2);
+        if(context.isReady()) {
+            for (int i = context.getStartIndex(); i <= context.getEndIndex(); i++) {
+                result += Math.pow(context.getArray()[i], 2);
             }
         }
-        phaserOwner.arriveAndAwaitAdvance();
+        context.arriveAndAwaitAdvance();
     }
 
     public long getResult() {

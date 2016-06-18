@@ -28,8 +28,11 @@ public class SquareSumCalculator implements SquareSum, PhaserOwner {
             List<SquareSumWorker> squareSumWorkerList = new ArrayList<>();
 
             for (int i = 0; i < threadsNumber; i++) {
-                phaser.register();
-                SquareSumWorker squareSumWorker = new SquareSumWorker(values, subArrayStartIndex, subArrayEndIndex, this);
+//                phaser.register();
+                WorkerContext context = newContext(subArrayStartIndex, subArrayEndIndex);
+                context.setArray(values);
+
+                SquareSumWorker squareSumWorker = new SquareSumWorker(context);
                 squareSumWorkerList.add(squareSumWorker);
                 executor.execute(squareSumWorker);
                 subArrayStartIndex = subArrayEndIndex + 1;
@@ -37,13 +40,22 @@ public class SquareSumCalculator implements SquareSum, PhaserOwner {
             }
 
             arriveAndAwaitAdvance();
-            for (int i = 0; i < squareSumWorkerList.size(); i++) {
-                result += squareSumWorkerList.get(i).getResult();
+            for (SquareSumWorker aSquareSumWorkerList : squareSumWorkerList) {
+                result += aSquareSumWorkerList.getResult();
             }
             phaser.arriveAndDeregister();
             executor.shutdown();
         }
         return result;
+    }
+
+    private WorkerContext newContext(int startIndex, int endIndex) {
+        phaser.register();
+        WorkerContext context = new WorkerContext();
+        context.setStartIndex(startIndex);
+        context.setEndIndex(endIndex);
+        context.setPhaserOwner(this);
+        return context;
     }
 
     @Override
